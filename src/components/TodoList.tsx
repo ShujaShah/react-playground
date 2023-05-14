@@ -12,7 +12,7 @@ const TodoList = () => {
     return axios.get<Todo[]>("https://jsonplaceholder.typicode.com/todos").then((res) => res.data);
   };
 
-  const { data: todos, error } = useQuery<Todo[], Error>({
+  const { data: todos, error,isLoading } = useQuery<Todo[], Error>({
     queryKey: ["todos"], //unique identifier which is array of one or more values...
     queryFn: fetchTodos, // function that we use to fetch the data from the backend
   });
@@ -20,6 +20,7 @@ const TodoList = () => {
   return (
     <>
       {error && <p>{error.message}</p>}
+      {isLoading && <p>Loading...</p>}
       <ul>
         {todos?.map((todo) => (
           <li key={todo.id}>{todo.title}</li>
