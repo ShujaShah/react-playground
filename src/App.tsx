@@ -1,10 +1,11 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
-import "./App.css";
-import GetGames from "./components/GetGames";
-import Genres from "./components/Genres";
-import { Genre } from "./hooks/useGenres";
-import { useState } from "react";
-import TodoList from "./components/todoList";
+// import { Grid, GridItem, Show } from "@chakra-ui/react";
+// import "./App.css";
+// import GetGames from "./components/GetGames";
+// import Genres from "./components/Genres";
+// import { Genre } from "./hooks/useGenres";
+// import { useState } from "react";
+// import TodoList from "./components/todoList";
+import Posts from "./components/Posts";
 
 function App() {
   // const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -31,7 +32,11 @@ function App() {
   //     </Grid>
   //   </>
   // );
-  return <TodoList />;
+  return (
+    <>
+      <Posts />;
+    </>
+  );
 }
 
 export default App;
