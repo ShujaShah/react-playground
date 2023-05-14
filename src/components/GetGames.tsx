@@ -10,7 +10,6 @@ const GetGames = () => {
     <>
       {error && <p>{error}</p>}
       <SimpleGrid columns={3} padding="10px" spacing={10}>
-        {/* {isLoading && skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)} */}
         {isLoading && skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
         {games.map((game) => (
           <Card width="300px" borderRadius={10} overflow="hidden" key={game.id}>
