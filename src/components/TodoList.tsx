@@ -9,17 +9,17 @@ interface Todo {
 
 const TodoList = () => {
   const fetchTodos = () => {
-   return axios.get<Todo[]>("https://jsonplaceholder.typicode.com/todos").then((res) => res.data);
+    return axios.get<Todo[]>("https://jsonplaceholder.typicode.com/todos").then((res) => res.data);
   };
 
-  const { data: todos } = useQuery({
+  const { data: todos, error } = useQuery<Todo[], Error>({
     queryKey: ["todos"], //unique identifier which is array of one or more values...
     queryFn: fetchTodos, // function that we use to fetch the data from the backend
   });
 
   return (
     <>
-      {/* {error && <p>{error}</p>} */}
+      {error && <p>{error.message}</p>}
       <ul>
         {todos?.map((todo) => (
           <li key={todo.id}>{todo.title}</li>
