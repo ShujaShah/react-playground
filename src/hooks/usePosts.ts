@@ -22,7 +22,7 @@ return useQuery<Post[], Error>({
     queryKey: ["posts", query], //unique identifier which is array of one or more values...
     queryFn: fetchPosts, // function that we use to fetch the data from the backend
     staleTime: 10*1000 , // how long the data is considered to be fresh in this case 10 seconds
-    keepPreviousData: true, 
+    keepPreviousData: true,  // to keep the previos data intact while moving to the next page to improve user experience
 });
 };
 
